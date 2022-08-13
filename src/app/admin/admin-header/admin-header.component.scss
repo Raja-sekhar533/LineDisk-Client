@@ -1,0 +1,84 @@
+.example-spacer {
+    flex: 1 1 auto;
+}
+
+.logo-icon img {
+    width: 300px;
+    height: auto;
+}
+
+.btn-userpanel {
+    color: FFFFFF;
+    padding: 5px 15px;
+    border: 1px solid #ffffff;
+    font-size: 1.3rem;
+    color: #b3ecfa;
+    font-weight: 300;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    -ms-border-radius: 3px;
+    -o-border-radius: 3px;
+}
+
+.btn-userpanel:hover {
+    color: #FFFFFF;
+    cursor: pointer;
+}
+
+nav {
+    background-color: #00ccff!important;
+}
+
+nav li {
+    list-style: none;
+}
+
+nav li:hover {
+    cursor: pointer;
+}
+
+.nav-item a:hover,
+.nav-item a:active,
+.nav-item a:focus {
+    color: #c33;
+}
+
+.example-icon {
+    font-size: 1.2rem;
+    color: #b3ecfa;
+    font-weight: 300;
+    padding: 0 15px;
+}
+
+.toolbar a {
+    text-decoration: none;
+}
+
+// .toolbar a:hover {
+//     border-bottom: 1px solid #ffffff;
+//     border-spacing: 5px;
+// }
+.toolbar a:hover>.example-icon {
+    cursor: pointer;
+    color: #FFFFFF;
+}
+
+// 03e3fc => header
+.navbar-brand {
+    width: 200px;
+    height: auto;
+}
+
+nav .drpmenu li:hover {
+    background-color: red!important;
+}
+
+.dropdown-item:hover {
+    background-color: #00ccff;
+}
+
+// .nav-item .active>span {
+//     color: #FFFFFF;
+//     font-weight: 400;
+// }

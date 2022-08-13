@@ -1,0 +1,43 @@
+<div class="container-fluid mb-2">
+    <div class="row">
+        <mat-card>
+            <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">My Videos</li>
+                </ol>
+            </nav>
+            <div>
+                <h4>My Videos</h4>
+            </div>
+        </mat-card>
+    </div>
+</div>
+
+<div class="my-videos">
+
+    <nb-card *ngFor="let video of MyVideos;" class="theme-default">
+        <nb-card-header style="display: flex;"> <span>{{video.filetitle}}</span> <span> <button nbButton [nbContextMenu]="itemss" nbContextMenuTag="my-context-menu" (click)="saveId(video._id)" style="right:0" ><nb-icon icon="more-vertical-outline"></nb-icon>
+                </button></span>
+        </nb-card-header>
+
+        <nb-card-body style="display: grid;">
+            <span>Uploaded: {{video.date | date}}</span>
+            <span> $ {{video.revenue}} | <nb-icon icon="eye-outline"></nb-icon>  {{video.views}} 
+                    </span>
+            <span>Status: <span style="color: green;">Uploaded</span></span>
+        </nb-card-body>
+        <nb-card-footer>
+            <div class="example-items-rows ">
+                <button nbButton outline status="primary" (click)="playVideo(video)">View</button>
+                <button nbButton hero status="warning" (click)="copyMessage(video._id)">Copy share link</button>
+            </div>
+
+
+        </nb-card-footer>
+    </nb-card>
+</div>
+
+
+
+<app-footer></app-footer>

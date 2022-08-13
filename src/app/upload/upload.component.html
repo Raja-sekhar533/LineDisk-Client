@@ -1,0 +1,71 @@
+<div class="container">
+    <div class="row">
+        <mat-card>
+            <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Upload</li>
+                </ol>
+            </nav>
+            <div>
+                <h4>Upload Files</h4>
+            </div>
+        </mat-card>
+
+        <mat-card>
+            <div class="video-upload-container">
+                <div class="card video-upload-icon">
+                    <div class="card-body">
+                        <img src="https://img.icons8.com/color/96/000000/folder-invoices--v2.png" />
+                    </div>
+                </div>
+                <div *ngIf="!Uploading" class="form-container">
+                    <div class="forminput">
+                        <label for="formFile" class="form-label"></label>
+                        <input class="form-control" type="file" id="formFile" (change)="selectFile($event)">
+
+                    </div>
+                    <!-- <div class="progress" *ngIf="progress">
+                    <div class="progress-bar" [style.width]="progress + '%'">{{progress}}%</div>
+                </div> -->
+
+
+                    <div class="forms">
+                        <mat-form-field appearance="legacy">
+                            <mat-label>Folder Name</mat-label>
+                            <input matInput required [(ngModel)]="FileTitle">
+                            <mat-icon matSuffix>folder</mat-icon>
+                        </mat-form-field>
+                    </div>
+                    <div class="forms">
+                        <mat-form-field appearance="legacy">
+                            <mat-label>Description</mat-label>
+                            <input matInput [(ngModel)]="description">
+                            <mat-icon matSuffix>description</mat-icon>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="forms">
+                        <button nbButton fullWidth status="primary" [disabled]="!selectedFiles" (click)="upload()">Upload</button>
+
+                    </div>
+                </div>
+                <div class="upload-Success-State" *ngIf="Uploading">
+                    <h2>Upload Successful!</h2>
+                    <div *ngIf="currentFile" class="progress my-3">
+                        <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" attr.aria-valuenow="{{ progress }}" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{ width: progress + '%' }">
+                            {{ progress }}%
+                        </div>
+                    </div>
+                    <div class="success-btns  ">
+                        <button type="button" class="btn btn-primary " (click)="uploadMore()">Upload More </button>
+                        <button type="button" class="btn btn-secondary " (click)="GoToMyVideos()">Go to MyVideos</button> </div>
+                </div>
+
+            </div>
+        </mat-card>
+
+
+
+    </div>
+</div>

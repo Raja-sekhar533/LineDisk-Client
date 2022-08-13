@@ -1,0 +1,101 @@
+.container-fluid {
+    min-height: 100%;
+}
+
+// mat-card {
+//     margin-top: 2rem;
+// }
+mat-card h4 {
+    font-size: 1rem;
+    color: black;
+}
+
+::ng-deep {
+    mat-card {
+        box-shadow: 0 0 30px 0 rgb(131 157 188 / 20%)!important;
+    }
+}
+
+.withdraw-cont {
+    background-color: #edf0f4;
+}
+
+.withdraw-cont p {
+    padding: 1rem;
+}
+
+.withdraw-container {
+    padding: 0;
+}
+
+.withdraw-tab h5 {
+    font-size: 1rem;
+    color: #626464;
+}
+
+.withdraw-tab p {
+    font-size: 1.6rem;
+    color: #626464;
+}
+
+.fas {
+    padding: 0 5px;
+}
+
+.payment-details {
+    width: 100%;
+}
+
+ol li a {
+    text-decoration: none;
+}
+
+.my-income {
+    display: flex;
+    justify-content: space-between;
+}
+
+.total-revenue {
+    display: flex;
+    justify-content: space-between;
+}
+
+nb-card-body {
+    background-color: #ff3d71!important;
+}
+
+.total-revenue .today-rev-title {
+    text-align: center;
+    width: 100%;
+    display: block;
+    position: relative;
+}
+
+.revenue-container {
+    width: 100%;
+    padding: 0;
+    margin-top: 1rem;
+}
+
+.total-revenue .today-rev-title .title {
+    text-align: left;
+    font-size: 1.0rem;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.total-revenue .today-rev-title .amt {
+    text-align: left;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.payment-logo {
+    width: 2.5rem;
+    height: auto;
+}
+
+.mat-form-field {
+    width: 100%;
+}

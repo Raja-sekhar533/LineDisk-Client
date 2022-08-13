@@ -1,0 +1,110 @@
+<div class="container-fluid">
+    <div class="row">
+
+
+        <mat-card>
+            <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a routerLink="/income">income</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">History</li>
+                </ol>
+            </nav>
+            <div>
+                <h4>Cash Withdraw History</h4>
+            </div>
+        </mat-card>
+        <div class="payment-container">
+            <nb-flip-card *ngFor="let payment of payments">
+                <nb-card-front>
+                    <nb-card>
+                        <nb-card-body>
+                            <div class="PaymentStatus">
+                                <h3> Withdraw</h3>
+                                <h3 *ngIf="payment.status == 'InProgress'" class="InProgress">In Progress</h3>
+                                <h3 *ngIf="payment.status == 'Approved'" class=" Approved ">Approved</h3>
+                                <h3 *ngIf="payment.status == 'Rejected'" class=" Rejected ">Regected</h3>
+                            </div>
+                            <div class="transaction-ids">
+                                <span>trans_Id: {{payment._id}}</span> <span class="trans-amount">${{payment.amount}}</span>
+                            </div>
+                            <div>
+                                <span>{{payment.date | date}}</span>
+                            </div>
+                        </nb-card-body>
+                    </nb-card>
+                </nb-card-front>
+                <nb-card-back>
+                    <nb-card>
+                        <nb-card-body *ngIf="payment.status == 'InProgress'">
+                            <nb-stepper class="in-progress" [selectedIndex]="1" disableStepNavigation="true" orientation="horizontal">
+                                <nb-step completed="true " [label]="labelOne ">
+                                    <ng-template NbStepComponent #labelOne>Auditing</ng-template>
+                                </nb-step>
+
+                                <nb-step [label]="labelTwo ">
+                                    <ng-template #labelTwo>In Progress</ng-template>
+                                </nb-step>
+
+                                <nb-step [label]="Thirdstep ">
+                                    <ng-template #Thirdstep>Approved</ng-template>
+                                </nb-step>
+
+                            </nb-stepper>
+                        </nb-card-body>
+
+                        <nb-card-body *ngIf="payment.status == 'Approved'">
+                            <nb-stepper [selectedIndex]="3" disableStepNavigation="true" orientation="horizontal">
+                                <nb-step completed="true " [label]="labelOne ">
+                                    <ng-template NbStepComponent #labelOne>Auditing</ng-template>
+                                </nb-step>
+                                <nb-step completed="true" [label]="labelTwo ">
+                                    <ng-template #labelTwo>In Progress</ng-template>
+                                </nb-step>
+
+                                <nb-step completed="true" [label]="Thirdstep ">
+                                    <ng-template #Thirdstep>Approved</ng-template>
+                                </nb-step>
+
+                            </nb-stepper>
+                        </nb-card-body>
+                        <nb-card-body *ngIf="payment.status=='Rejected' ">
+                            <nb-stepper class="Rejected" [selectedIndex]="3" [selectedIndex]="3" disableStepNavigation="true" orientation="horizontal">
+                                <nb-step completed="true " [label]="labelOne ">
+                                    <ng-template NbStepComponent #labelOne>Auditing</ng-template>
+                                </nb-step>
+
+                                <nb-step completed="true" [label]="labelTwo ">
+                                    <ng-template #labelTwo>In Progress</ng-template>
+                                </nb-step>
+
+                                <nb-step completed="true" [label]="Thirdstep ">
+                                    <ng-template #Thirdstep>Rejected</ng-template>
+                                </nb-step>
+
+                            </nb-stepper>
+                        </nb-card-body>
+                    </nb-card>
+                </nb-card-back>
+            </nb-flip-card>
+
+        </div>
+    </div>
+</div>
+
+
+<!-- <div class="container ">
+    <div class="row ">
+        <mat-expansion-panel>
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    This is the expansion title
+                </mat-panel-title>
+                <mat-panel-description>
+                    This is a summary of the content
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <p>This is the primary content of the panel.</p>
+        </mat-expansion-panel>
+    </div>
+</div> -->

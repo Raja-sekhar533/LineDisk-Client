@@ -1,0 +1,158 @@
+<div class="container-fluid">
+    <div class="row">
+
+        <mat-card>
+            <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a routerLink="/income">income</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Cash</li>
+                </ol>
+            </nav>
+
+
+
+            <div class="my-income">
+                <h4>Cash WithDrawl</h4>
+                <button nbButton size="small" status="success" routerLink="/my-withdrawal">My Withdrawl <nb-icon icon="arrowhead-right-outline"></nb-icon></button>
+
+            </div>
+        </mat-card>
+
+
+
+        <div class="revenue-container">
+            <nb-card>
+                <nb-card-body>
+                    <div class="total-revenue">
+                        <div class="today-rev-title">
+                            <p class="title">Withdrawable Revenue</p>
+                            <p class="amt">${{totalrevenue | number: '2.4-4'}}</p>
+                        </div>
+
+                    </div>
+                </nb-card-body>
+            </nb-card>
+        </div>
+
+        <div class="col-lg-12 withdraw-container">
+            <nb-card class="withdraw-cont">
+                <p>Withdraw Amount :</p>
+                <mat-tab-group mat-align-tabs="start">
+                    <mat-tab>
+                        <ng-template mat-tab-label>
+                            <img class="payment-logo" src="./../../assets/images//google-pay-icon.webp">
+                        </ng-template>
+
+
+                        <div class="payment-details p-2 mt-2">
+                            <form [formGroup]="withDrawForm" (ngSubmit)="onSubmit()">
+
+                                <p>
+                                    <mat-form-field appearance="legacy">
+                                        <mat-label>Enter Mobile Number/UPI ID</mat-label>
+                                        <input matInput placeholder="mobile number or UPI ID" formControlName="mobileUpi" name="mobileUpi">
+
+                                        <mat-hint>UPI / Mobile Number</mat-hint>
+                                    </mat-form-field>
+                                </p>
+                                <p>
+                                    <mat-form-field appearance="legacy">
+                                        <mat-label>Enter Amount to withdrawal </mat-label>
+                                        <input type="number" matInput formControlName="amount" name="amount" (keyup)='onFocus($event)' [max]="totalrevenue">
+
+                                        <mat-hint *ngIf="!isMax">Min: 5</mat-hint>
+
+                                        <mat-error *ngIf="withDrawForm.value.amount">Amount must be at least 5 dollors and it should not be more than your withdrawal amount</mat-error>
+
+                                    </mat-form-field>
+
+                                </p>
+                                <div fxFlex="100%">
+                                    <button nbButton size="medium" status="success" type="submit" [disabled]="!withDrawForm.valid" (click)="paymentGpay()">Send withdraw request<nb-icon icon="arrowhead-right-outline"></nb-icon></button>
+                                </div>
+
+                            </form>
+                        </div>
+
+                    </mat-tab>
+                    <mat-tab>
+                        <ng-template mat-tab-label>
+                            <img class="payment-logo" src="./../../assets/images/phonepe-logo-icon.webp">
+                        </ng-template>
+
+                        <div class="container">
+                            <div class="row">
+                                <div class="payment-details p-2 mt-2">
+                                    <form [formGroup]="withDrawForm" (ngSubmit)="onSubmit()">
+
+                                        <p>
+                                            <mat-form-field appearance="legacy">
+                                                <mat-label>Enter Mobile Number/UPI ID</mat-label>
+                                                <input matInput placeholder="mobile number or UPI ID" formControlName="mobileUpi" name="mobileUpi">
+
+                                                <mat-hint>UPI / Mobile Number</mat-hint>
+                                            </mat-form-field>
+                                        </p>
+                                        <p>
+                                            <mat-form-field appearance="legacy">
+                                                <mat-label>Enter Amount to withdrawal </mat-label>
+                                                <input type="number" matInput formControlName="amount" name="amount" (keyup)='onFocus($event)' [max]="totalrevenue">
+
+                                                <mat-hint>Min: 5</mat-hint>
+                                                <mat-error *ngIf="withDrawForm.value.amount">Amount must be at least 5 dollors and it should not be more than your withdrawal amount</mat-error>
+
+                                            </mat-form-field>
+                                        </p>
+                                        <div fxFlex="100%">
+                                            <button mat-raised-button color="primary" type="submit" [disabled]="!withDrawForm.valid" (click)="paymentPHpay()">Send withdraw request<nb-icon icon="arrowhead-right-outline"></nb-icon></button>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </mat-tab>
+                    <mat-tab>
+                        <ng-template mat-tab-label>
+                            <img class="payment-logo" src="./../../assets/images/Paytm-Logo.wine.png">
+                        </ng-template>
+
+                        <div class="container">
+                            <div class="row">
+                                <div class="payment-details p-2 mt-2">
+                                    <form [formGroup]="withDrawForm" (ngSubmit)="onSubmit()">
+
+                                        <p>
+                                            <mat-form-field appearance="legacy">
+                                                <mat-label>Enter Mobile Number/UPI ID</mat-label>
+                                                <input matInput placeholder="mobile number or UPI ID" formControlName="mobileUpi" name="mobileUpi">
+
+                                                <mat-hint>UPI / Mobile Number</mat-hint>
+                                            </mat-form-field>
+                                        </p>
+                                        <p>
+                                            <mat-form-field appearance="legacy">
+                                                <mat-label>Enter Amount to withdrawal </mat-label>
+                                                <input type="number" matInput formControlName="amount" name="amount" (keyup)='onFocus($event)' [max]="totalrevenue">
+
+                                                <mat-hint>Min: 5 </mat-hint>
+                                                <mat-error *ngIf="withDrawForm.value.amount">Amount must be at least 5 dollors and it should not be more than your withdrawal amount</mat-error>
+
+                                            </mat-form-field>
+                                        </p>
+                                        <div fxFlex="100%">
+                                            <button mat-raised-button color="primary" type="submit" [disabled]="!withDrawForm.valid" (click)=paymentTypePTM()>Send withdraw request<nb-icon icon="arrowhead-right-outline"></nb-icon></button>
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </mat-tab>
+
+                </mat-tab-group>
+            </nb-card>
+        </div>
+    </div>
+</div>

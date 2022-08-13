@@ -1,0 +1,208 @@
+.container-fluid {
+    min-height: 100%;
+    width: 100%;
+}
+
+mat-card {
+    margin-top: 2rem;
+    overflow: scroll;
+}
+
+mat-card h4 {
+    font-size: 1rem;
+    color: black;
+}
+
+mat-card nav ol li a {
+    text-decoration: none;
+}
+
+::ng-deep {
+    mat-card {
+        box-shadow: 0 0 30px 0 rgb(131 157 188 / 20%)!important;
+    }
+}
+
+.title {
+    max-width: 8rem;
+    overflow: hidden;
+}
+
+.table {
+    width: 100%;
+    overflow: scroll;
+}
+
+thead th {
+    color: rgb(114, 111, 111);
+}
+
+tbody th,
+td {
+    color: rgb(150, 146, 146);
+    font-weight: 400;
+}
+
+.actions a:hover {
+    cursor: pointer;
+}
+
+.container mat-card {
+    text-align: center;
+}
+
+.container mat-card .profile i {
+    font-size: 5rem;
+    color: #00ccff;
+    margin-bottom: 10px;
+}
+
+.container mat-card .profile span {
+    font-size: 1.4rem;
+    margin-top: 14px;
+    color: #626464;
+}
+
+.container mat-card .profile p {
+    color: #626464;
+}
+
+.total-est {
+    border-right: 1px solid black;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.total-est h4 {
+    color: #626464;
+}
+
+.total-est span {
+    font-size: 1.6rem;
+}
+
+.withdraw {
+    margin: 0;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+nb-card {
+    border-radius: 4px!important;
+    -webkit-border-radius: 4px!important;
+    -moz-border-radius: 4px!important;
+    -ms-border-radius: 4px!important;
+    -o-border-radius: 4px!important;
+}
+
+.profile {
+    display: flex;
+}
+
+.today-estimated {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.today-estimated .today-est-title {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.today-estimated .today-est-amt {
+    font-size: 1.3rem;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.profile span {
+    font-size: 0.8rem;
+}
+
+.profile .title {
+    font-size: 1.3rem;
+    display: block;
+    font-weight: bold;
+}
+
+.profile-img {
+    width: 4rem;
+    height: auto;
+}
+
+.profile-img img {
+    height: 3rem;
+    width: auto;
+}
+
+.my-income-profile {
+    width: 100%!important;
+    padding: 0;
+    margin-top: 1rem;
+}
+
+.my-income {
+    display: flex;
+    justify-content: space-between;
+}
+
+nb-card-body {
+    background-color: #ff3d71!important;
+}
+
+.total-revenue {
+    display: flex;
+    justify-content: space-between;
+}
+
+.total-revenue .today-rev-title {
+    text-align: center;
+    width: 50%;
+    display: block;
+    position: relative;
+}
+
+.total-revenue .today-rev-title .title {
+    text-align: left;
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.total-revenue .today-rev-title:after {
+    content: '';
+    position: absolute;
+    right: 30px;
+    border-right: 1px solid #ffffff;
+    top: 10%;
+    bottom: 10%;
+}
+
+.total-revenue .today-rev-title .amt {
+    text-align: left;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.total-revenue .today-rev-amt .title {
+    font-size: 0.8rem;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.total-revenue .today-rev-amt .amt {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.total-revenue .today-rev-amt {
+    display: block;
+    width: 50%;
+}
