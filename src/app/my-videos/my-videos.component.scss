@@ -68,3 +68,26 @@ td {
 .example-items-rows button {
     margin-right: 10px;
 }
+
+nb-card {
+    height: auto;
+    padding: 0;
+    margin-bottom: 5px!important;
+    border-radius: 20px!important;
+    -webkit-border-radius: 20px!important;
+    -moz-border-radius: 20px!important;
+    -ms-border-radius: 20px!important;
+    -o-border-radius: 20px!important;
+    background-color: #ffffff;
+}
+
+nb-card-body {
+    height: auto;
+    border-radius: 0;
+    margin-bottom: 5px!important;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+    background-color: #edf0f4!important;
+}

@@ -1,14 +1,11 @@
 <nb-layout>
-
-
     <nb-layout-header fixed>
-
         <div class="header-container">
             <div class="logo-container">
-                <a (click)="ToggleSideBar()" class="sidebar-toggle">
+                <a (click)="ToggleSideBar()" class="sidebar-toggle" *ngIf='!isAdmin'>
                     <nb-icon icon="menu-2-outline"></nb-icon>
                 </a>
-                <a class="logo"><img src="./../assets/images/logo2.png" class="img-fluid" alt="LineDisk"></a>
+                <a class="logo" (click)="tohome()"><img src="./../assets/images/logo2.png" class="img-fluid" alt="LineDisk"></a>
             </div>
         </div>
 
@@ -18,18 +15,19 @@
                 <nb-action class="control-item">
                     <nb-search type="rotate-layout"></nb-search>
                 </nb-action>
-                <nb-action class="control-item" icon="bell-outline"></nb-action>
-                <nb-action class="user-action">
-                    <nb-user *ngIf="token" [nbContextMenu]="userMenu" nbContextMenuTag="my-context-menu" [name]="user" picture="../assets/images/profile-img.png">
+                <nb-action routerLink='/notifications' class="control-item" icon="bell-outline" badgeText="{{notificationCount}}" badgeStatus="danger" badgePosition="top right"></nb-action>
+
+                <nb-action class=" user-action ">
+                    <nb-user *ngIf="token " [nbContextMenu]="userMenu " nbContextMenuTag="my-context-menu " [name]="user " picture="../assets/images/profile-img.png ">
                     </nb-user>
-                    <nb-user *ngIf="!token" [nbContextMenu]="userMenu2" nbContextMenuTag="my-context-menu" [name]="user" picture="../assets/images/profile-img.png">
+                    <nb-user *ngIf="!token " [nbContextMenu]="userMenu2 " nbContextMenuTag="my-context-menu " [name]="user " picture="../assets/images/profile-img.png ">
                     </nb-user>
                 </nb-action>
             </nb-actions>
         </div>
     </nb-layout-header>
-    <nb-sidebar state="collapsed" responsive>
-        <nb-menu [items]="items"></nb-menu>
+    <nb-sidebar state="collapsed" responsive *ngIf='!isAdmin'>
+        <nb-menu [items]="items "></nb-menu>
     </nb-sidebar>
 
     <nb-layout-column>
@@ -39,7 +37,69 @@
     </nb-layout-column>
 
     <nb-layout-footer fixed>
-        <!-- Insert footer here -->
+
+        <div class="container-fluid footer" *ngIf='!isAdmin'>
+            <div class="row">
+                <div class="logo-footer">
+                    <a class="logo-footer" routerLink='/'><img src="./../assets/images/logo2.png" class="img-fluid" alt="LineDisk"></a>
+                </div>
+                <div class="list">
+                    <ol>
+                        <li><a href="/">Home</a> </li>
+                        <li *ngIf="isLogin"><a routerLink="/upload">Uploads</a> </li>
+                    </ol>
+                </div>
+                <div class="list" *ngIf="isLogin">
+                    <ol>
+                        <li *ngIf="isLogin"><a routerLink="/myvideos">My Videos</a></li>
+                        <li *ngIf="isLogin"><a routerLink="/income">Income</a></li>
+                    </ol>
+                </div>
+                <div class="list">
+                    <ol>
+                        <li><a routerLink="/terms-and-conditions">Terms & Conditions</a></li>
+
+                    </ol>
+                </div>
+                <div style="display: flex;justify-content:space-around; color:#ffffff;">
+                    <span>
+                    <i class="fa-regular fa-copyright"> </i> 2022 - 2025 <span style="padding-left: 1rem;font-weight:600">LineDisk</span></span>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="container-fluid footer" *ngIf='isAdmin'>
+            <div class="row">
+                <div class="logo-footer">
+                    <a class="logo-footer" routerLink='/'><img src="./../assets/images/logo2.png" class="img-fluid" alt="LineDisk"></a>
+                </div>
+                <div class="list">
+                    <ol>
+                        <li><a href="/">Home</a> </li>
+                        <li *ngIf="isLogin"><a routerLink="/upload">Uploads</a> </li>
+                    </ol>
+                </div>
+                <div class="list" *ngIf="isLogin">
+                    <ol>
+                        <li *ngIf="isLogin"><a routerLink="/myvideos">My Videos</a></li>
+                        <li *ngIf="isLogin"><a routerLink="/income">Income</a></li>
+                    </ol>
+                </div>
+                <div class="list">
+                    <ol>
+                        <li><a routerLink="/terms-and-conditions">Terms & Conditions</a></li>
+
+                    </ol>
+                </div>
+                <div style="display: flex;justify-content:space-around; color:#ffffff;">
+                    <span>
+                    <i class="fa-regular fa-copyright"> </i> 2022 - 2025 <span style="padding-left: 1rem;font-weight:600">LineDisk</span></span>
+                </div>
+
+
+            </div>
+        </div>
     </nb-layout-footer>
 
 </nb-layout>

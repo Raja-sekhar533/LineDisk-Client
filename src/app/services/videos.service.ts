@@ -32,7 +32,7 @@ export class VideosService {
     return this.http.get(`${this.baseUrl}/video`);
   }
 
-  getVideosById(token:any,params:any){
+  getVideosById(token:any,params:any):Observable<any>{
     return this.http.get(`${this.baseUrl}video/getvideos/${token}`+params);
   }
 
@@ -73,5 +73,8 @@ export class VideosService {
   }
   getClientIp(){
     return this.http.get("http://api.ipify.org/?format=json")
+  }
+  getVideoById(id:any){
+    return this.http.get<any>(`${this.baseUrl}video/getvideosbyId/${id}`);
   }
 }

@@ -3,6 +3,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { VideosService } from './../../services/videos.service';
 import { Component, OnInit } from '@angular/core';
+import { NbMenuItem, NbMenuService,  } from '@nebular/theme';
+import { filter, map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-manage-videos',
@@ -16,20 +18,34 @@ export class ManageVideosComponent implements OnInit {
   total:any;
   selectedVideoId :any;
 
-
+  videoId:any;
   MyVideos:any;
-  constructor(private uploadService:VideosService, public router:Router,private snackbar:MatSnackBar) { }
+  constructor(private uploadService:VideosService, public router:Router,private snackbar:MatSnackBar,private nbMenuService: NbMenuService) { }
 
   ngOnInit(): void {
 this.getAllVideos();
+this.nbMenuService.onItemClick()
+.pipe(
+  filter(({ tag }) => tag === 'my-context-menu'),
+  map(({ item: { title } }) => title),
+)
+.subscribe((title: string) => {
+  console.log(title+ "title")
+  if(title == "Delete"){
+    this.delete(this.videoId);
+  }
+});
   }
   getAllVideos(){
     const queryParams = `?pageSize=${this.postsPerPage}&page=${this.currentPage}`;
-    this.uploadService.getAllVideos(localStorage.getItem('token'),queryParams).subscribe((res:any) => {
+    this.uploadService.getAllVideos(localStorage.getItem('admintoken'),queryParams).subscribe((res:any) => {
       console.log(res.data);
       this.MyVideos = res.data;
       this.total = res.total;
     });
+  }
+  saveId(id:any){
+    this.videoId = id;
   }
 edit(id:any){
   this.router.navigate(['/edit', id]);
@@ -56,4 +72,11 @@ onChangedPage(pageData: PageEvent){
 deleteClick(id:any){
   this.selectedVideoId = id;
 }
+itemss: NbMenuItem[] = [
+
+  {
+    title:'Delete',
+    icon: 'trash-2-outline',
+  },
+]
 }

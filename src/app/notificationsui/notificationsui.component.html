@@ -1,0 +1,10 @@
+<div class="container-fluid">
+    <div class="row">
+        <nb-card *ngFor="let notif of notifications" (click)="UpdateStatus(notif._id)">
+            <nb-card-header [ngClass]="notif.read === 'No' ? 'color-change' : 'text'">
+                <div class="content"><span>{{notif.message}}</span><span *ngIf="notif.read == 'No'" style="width:10px;height:8px; margin:4px;border-radius:50%;background-color:red;"></span></div>
+                <div class="date"><span>{{notif.date | date:'medium'}}</span></div>
+            </nb-card-header>
+        </nb-card>
+    </div>
+</div>

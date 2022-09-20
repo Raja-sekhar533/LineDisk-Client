@@ -102,4 +102,38 @@ nb-menu {
     nb-layout-column {
         width: 100%!important;
     }
+    nb-badge {
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+    }
+    nb-layout .layout .layout-container .content nb-layout-footer nav {
+        background: #35c8ec;
+    }
+}
+
+.list ol {
+    display: flex;
+    justify-content: space-around;
+    list-style: none;
+}
+
+.list ol li a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.list ol li a:hover {
+    cursor: pointer;
+    color: #ff4081;
+}
+
+.logo-footer img {
+    height: 6rem;
+}
+
+.fa-copyright {
+    padding-right: 5px;
 }

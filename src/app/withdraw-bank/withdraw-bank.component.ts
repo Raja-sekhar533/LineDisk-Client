@@ -1,3 +1,4 @@
+import { NotificationServiceService } from './../services/notification-service.service';
 import { AuthService } from './../services/auth.service';
 import { PaymentsService } from './../services/payments.service';
 import { VideosService } from './../services/videos.service';
@@ -14,7 +15,7 @@ export class WithdrawBankComponent implements OnInit {
   totalrevenue:any;
   isMax!: boolean;
   PType:any;
-  constructor(private authService:AuthService, private paymentsService:PaymentsService) { }
+  constructor(private authService:AuthService, private paymentsService:PaymentsService, private notify:NotificationServiceService) { }
 
   ngOnInit(): void {
     this.getTotalRevenue();

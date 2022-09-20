@@ -6,6 +6,7 @@ import { VideosService } from './../services/videos.service';
 import { Component, Inject, InjectionToken, OnInit } from '@angular/core';
 import { NbMenuItem, NbMenuService, NB_WINDOW } from '@nebular/theme';
 import { filter, map } from 'rxjs/operators';
+import { Observable } from 'rxjs/internal/Observable';
 @Component({
   selector: 'app-my-videos',
   templateUrl: './my-videos.component.html',
@@ -18,6 +19,7 @@ export class MyVideosComponent implements OnInit {
   total:any;
   videoId:any;
   MyVideos:any;
+  isUpdated:boolean | undefined;
   constructor(private uploadService:VideosService, public router:Router,private snackbar:MatSnackBar,private nbMenuService: NbMenuService,private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -41,11 +43,15 @@ export class MyVideosComponent implements OnInit {
   saveId(id:any){
     this.videoId = id;
   }
-  getVideosById(){
+  getVideosById():void{
     const queryParams = `?pageSize=${this.postsPerPage}&page=${this.currentPage}`;
     this.uploadService.getVideosById(localStorage.getItem('token'),queryParams).subscribe((res:any) => {
-      this.MyVideos = res.data;
+      this.MyVideos = res.data.reverse();
       this.total = res.total;
+      // if(!this.isUpdated){
+      //   this.isUpdated = true;
+      //   window.location.reload();
+      // }
     });
   }
 edit(id:any){

@@ -1,3 +1,5 @@
+import { NotificationServiceService } from './services/notification-service.service';
+import { PaymentsService } from './services/payments.service';
 import { AuthService } from './services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { NbMenuItem, NbMenuService, NbSidebarService } from '@nebular/theme';
@@ -9,10 +11,12 @@ import { Router } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
+
 export class AppComponent {
   title = 'LineDiskClient';
   userMenu = [{ title: 'Log out' , link:"/login"} ];
   userMenu2 = [{ title: 'Sign In' , link:"/login"}, {title:"Sign Up", link:"/signup"} ];
+  notificationCount:any;
   token = this.authService.loggedIn();
   user :any;
   items: NbMenuItem[] = [
@@ -31,18 +35,25 @@ export class AppComponent {
       icon:'credit-card-outline',
       link:'/income'
     },
-
   ]
   isLogin = false;
-  
-  constructor(public router:Router,private sidebarService: NbSidebarService, private authService:AuthService,private nbMenuService: NbMenuService) {
+  isAdmin: any;
+  constructor(public router:Router,private sidebarService: NbSidebarService, private authService:AuthService,private nbMenuService: NbMenuService, private notiService:NotificationServiceService,private paymentService:PaymentsService,) {
   }
   ToggleSideBar(){
     this.sidebarService.toggle(false, 'left');
   }
-  OnInit(){
+  ngOnInit(){
+
+    if(localStorage.getItem('admid')){
+      this.isAdmin = true;
+    }else{
+      this.isAdmin = false
+    }
     localStorage.removeItem('id');
     this.isLogin = this.authService.loggedIn();
+    this.notiService.GetPaymentStatus()
+    this.getNotifications();
     this.nbMenuService.onItemClick()
     .pipe(
       filter(({ tag }) => tag === 'my-context-menu'),
@@ -60,6 +71,18 @@ export class AppComponent {
     });
   }
 
+  getNotifications():void{
+    this.paymentService.getNotifications(localStorage.getItem('token')).subscribe((res) => {
+      this.notificationCount = res.data.filter((obj:any) => obj.read === "No").length
+    })
+  }
+  tohome(){
+    if(this.isAdmin){
+      this.router.navigate(['/Admin']);
+    }else{
+      this.router.navigate(['/home']);
+    }
+  }
   loggedOut(){
     localStorage.removeItem('token'); 
     this.router.navigate(['/login']);

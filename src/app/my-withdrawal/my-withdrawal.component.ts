@@ -14,13 +14,13 @@ export class MyWithdrawalComponent implements OnInit {
   linearMode = true;
 
   ngOnInit(): void {
-    this.getTransaction()
+    this.getTransaction();
   }
   getTransaction(){
     const userId = localStorage.getItem("token");
     this.paymentService.getPaymentsById(userId).subscribe(res => {
       console.log(res.data)
-      this.payments = res.data;
+      this.payments = res.data.reverse();
     })
   }
 }

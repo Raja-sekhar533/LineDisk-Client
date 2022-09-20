@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 export class IncomeComponent implements OnInit {
   username = localStorage.getItem('name');
-  id = localStorage.getItem('token');
+  id = localStorage.getItem('userId');
 
   totalrevenue:any;
   constructor(private videosService:VideosService, public matSnackBar:MatSnackBar,public router:Router,private authService:AuthService) { }

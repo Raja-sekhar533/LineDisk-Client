@@ -40,11 +40,15 @@ import { AddAdminComponent } from './admin/add-admin/add-admin.component';
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { MyWithdrawalComponent } from './my-withdrawal/my-withdrawal.component';
-import { NbThemeModule, NbLayoutModule, NbCardModule, NbButtonModule, NbMenuModule, NbContextMenuModule, NbIconModule, NbSearchModule, NbActionsModule, NbUserModule, NbSidebarModule, NbStepperModule, NbRadioModule, NbDialogModule, NbSelectModule, NbToastrModule, NbToastrService } from '@nebular/theme';
+import { NbThemeModule, NbLayoutModule, NbCardModule, NbButtonModule, NbMenuModule, NbContextMenuModule, NbIconModule, NbSearchModule, NbActionsModule, NbUserModule, NbSidebarModule, NbStepperModule, NbRadioModule, NbDialogModule, NbSelectModule, NbToastrModule, NbToastrService, NbFormFieldModule, NbInputModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { ReportDialogComponent } from './report-dialog/report-dialog.component';
 import { AdminHomePageComponent } from './admin/admin-home-page/admin-home-page.component';
 import { AdminRoutingModule } from './admin/admin-routing/admin-routing.module';
+import { SearchBiIdComponent } from './admin/search-bi-id/search-bi-id.component';
+import { ManagePaymentsComponent } from './admin/manage-payments/manage-payments.component';
+import { NotificationsuiComponent } from './notificationsui/notificationsui.component';
+import { TermsComponent } from './terms/terms.component';
 
 
 @NgModule({
@@ -70,7 +74,11 @@ import { AdminRoutingModule } from './admin/admin-routing/admin-routing.module';
     AdminLoginComponent,
     MyWithdrawalComponent,
     ReportDialogComponent,
-    AdminHomePageComponent
+    AdminHomePageComponent,
+    SearchBiIdComponent,
+    ManagePaymentsComponent,
+    NotificationsuiComponent,
+    TermsComponent
   ],
   imports: [
     BrowserModule,
@@ -113,7 +121,9 @@ import { AdminRoutingModule } from './admin/admin-routing/admin-routing.module';
     NbRadioModule,
     NbDialogModule,
     NbSelectModule,
-    NbToastrModule.forRoot()
+    NbToastrModule.forRoot(),
+    NbFormFieldModule,
+    NbInputModule
   ],
   providers: [NbToastrService],
   bootstrap: [AppComponent]

@@ -1,3 +1,6 @@
+import { TermsComponent } from './terms/terms.component';
+import { AuthguardGuard } from './guards/authguard.guard';
+import { NotificationsuiComponent } from './notificationsui/notificationsui.component';
 import { MyWithdrawalComponent } from './my-withdrawal/my-withdrawal.component';
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
 import { ManageAdminsComponent } from './admin/manage-admins/manage-admins.component';
@@ -17,17 +20,19 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {path:'', component:HomeComponent},
-  {path:'home', component:HomeComponent},
+  {path:'home', component:HomeComponent, canActivate: [AuthguardGuard]},
   {path:'signup', component:SignupComponent},
   {path:'login', component: LoginComponent},
-  {path:'upload', component:UploadComponent},
-  {path:'myvideos', component:MyVideosComponent},
-  {path:'edit/:id', component:EditVideoComponent},
-  {path:'income', component:IncomeComponent},
+  {path:'upload', component:UploadComponent, canActivate: [AuthguardGuard]},
+  {path:'myvideos', component:MyVideosComponent, canActivate: [AuthguardGuard]},
+  {path:'edit/:id', component:EditVideoComponent, canActivate: [AuthguardGuard]},
+  {path:'income', component:IncomeComponent, canActivate: [AuthguardGuard]},
+  {path:'notifications', component:NotificationsuiComponent, canActivate: [AuthguardGuard]},
   {path:'player/:id', component:PlayerComponent},
-  {path:'withdraw-bank', component:WithdrawBankComponent},
-  {path:'my-withdrawal', component:MyWithdrawalComponent},
+  {path:'withdraw-bank', component:WithdrawBankComponent, canActivate: [AuthguardGuard]},
+  {path:'my-withdrawal', component:MyWithdrawalComponent, canActivate: [AuthguardGuard]},
   {path:'Admin/login', component:AdminLoginComponent},
+  {path:'terms-and-conditions', component:TermsComponent},
   
 ];
 

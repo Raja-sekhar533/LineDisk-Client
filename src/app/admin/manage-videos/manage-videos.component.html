@@ -12,7 +12,21 @@
             </div>
         </mat-card>
 
-        <div>
+        <div class="all-videos">
+            <nb-card *ngFor="let video of MyVideos;" class="theme-default">
+                <nb-card-header style="display: flex; justify-content:space-between"> <span style="font-size: 13px;">{{video.filetitle.substring(0,40)}}...</span> <span> <button nbButton [nbContextMenu]="itemss" nbContextMenuTag="my-context-menu" (click)="saveId(video._id)" style="right:0" ><nb-icon icon="more-vertical-outline"></nb-icon>
+        </button></span>
+                </nb-card-header>
+                <nb-card-body style="display: grid;">
+                    <span>Owner: {{video.userId}}</span>
+                    <span>Uploaded: {{video.date | date}}</span>
+                    <span> $ {{video.revenue}} | <nb-icon icon="eye-outline"></nb-icon>  {{video.views}} 
+                            </span>
+                    <span>Status: <span style="color: green;">Uploaded</span></span>
+                </nb-card-body>
+            </nb-card>
+        </div>
+        <!-- <div>
             <div class="container">
                 <div class="row">
                     <mat-card>
@@ -56,16 +70,16 @@
                             </tbody>
                         </table>
                     </mat-card>
-                    <mat-paginator [length]="total" [pageSize]="postsPerPage" [pageSizeOptions]="pageSizeOptions" (page)="onChangedPage($event)">
-                    </mat-paginator>
                 </div>
             </div>
-
-        </div>
+             -->
+        <!-- </div> -->
     </div>
 </div>
+<mat-paginator [length]="total" [pageSize]="postsPerPage" [pageSizeOptions]="pageSizeOptions" (page)="onChangedPage($event)">
+</mat-paginator>
 
-<app-footer></app-footer>
+<!-- <app-footer></app-footer> -->
 
 
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">

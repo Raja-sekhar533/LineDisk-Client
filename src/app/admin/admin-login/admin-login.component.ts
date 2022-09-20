@@ -22,14 +22,14 @@ export class AdminLoginComponent implements OnInit {
   }
   Login(){
     this.authService.AdminLogin(this.profileForm.value).subscribe((res:any) => {
-      console.log(res);
      if(res.result){
        localStorage.setItem('admintoken',res.token);
+       localStorage.setItem('token',res.token);
        localStorage.setItem('adminname',res.name);
        localStorage.setItem('admid',res.id);
   
       this.snackbar.open('Login Successful!', '', {duration: 2000});
-      this.router.navigate(['/home']); 
+      this.router.navigate(['/Admin']); 
   
      }else{
       this.snackbar.open('Login Faild!', '', {duration: 2000});

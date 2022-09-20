@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['/home']); 
 
    }else{
-    this.snackbar.open('Login Faild!', '', {duration: 2000});
+    this.snackbar.open('Invalid Credentials!..', '', {duration: 2000});
 
    }
    

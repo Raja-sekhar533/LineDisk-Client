@@ -14,6 +14,6 @@ export class AdminHeaderComponent implements OnInit {
   }
   loggedOut(){
     localStorage.removeItem('token'); 
-    // this.router.navigate(['/login']);
+    //  this.router.navigate(['/login']);
   }
 }
