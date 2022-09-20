@@ -1,0 +1,75 @@
+<app-header></app-header>
+
+<div class="container">
+    <div class="row">
+        <mat-card>
+            <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Edit</li>
+                </ol>
+            </nav>
+            <div>
+                <h4>Edit File</h4>
+            </div>
+        </mat-card>
+        <mat-card>
+            <div class="video-upload-container">
+                <div class="card video-upload-icon">
+                    <div class="card-body">
+                        <img src="https://img.icons8.com/color/96/000000/folder-invoices--v2.png" />
+                    </div>
+                </div>
+                <div class="preview">
+                    <video width="500" height="300" src="{{editFormData}}">
+                        
+                      </video>
+                </div>
+                <!-- <div class="forminput">
+                    <label for="formFile" class="form-label"></label>
+                    <input class="form-control" type="file" id="formFile" (change)="selectFile($event)">
+                </div> -->
+                <!-- <div class="progress" *ngIf="progress">
+                    <div class="progress-bar" [style.width]="progress + '%'">{{progress}}%</div>
+                </div> -->
+                <form [formGroup]='profileForm' (ngSubmit)="upload()">
+
+                    <div>
+                        <mat-form-field appearance="legacy" class="d-grid gap-2 col-6 mx-auto m-2">
+                            <mat-label>Folder Name</mat-label>
+                            <input matInput required formControlName="Filetitle">
+                            <mat-icon matSuffix>folder</mat-icon>
+                        </mat-form-field>
+                    </div>
+                    <div>
+                        <mat-form-field appearance="legacy" class="d-grid gap-2 col-6 mx-auto m-2">
+                            <mat-label>Description</mat-label>
+                            <input matInput formControlName="Description">
+                            <mat-icon matSuffix>description</mat-icon>
+                        </mat-form-field>
+                    </div>
+                    <div class="d-grid gap-2 col-6 mx-auto m-2">
+                        <button class="btn btn-primary" type="button" (click)="upload()">Upload</button>
+                    </div>
+                </form>
+            </div>
+        </mat-card>
+        <!-- <mat-card>
+            <div class="upload-Success-State">
+                <h2>Upload Successful!</h2>
+                <div *ngIf="currentFile" class="progress my-3">
+                    <div class="progress-bar progress-bar-info progress-bar-striped" role="progressbar" attr.aria-valuenow="{{ progress }}" aria-valuemin="0" aria-valuemax="100" [ngStyle]="{ width: progress + '%' }">
+                        {{ progress }}%
+                    </div>
+                </div>
+                <div class="success-btns  ">
+                    <button type="button" class="btn btn-primary ">Upload More </button>
+                    <button type="button" class="btn btn-secondary ">Go to MyVideos</button> </div>
+            </div>
+        </mat-card> -->
+
+
+    </div>
+</div>
+
+<!-- <app-footer></app-footer> -->

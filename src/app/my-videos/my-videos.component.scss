@@ -1,0 +1,93 @@
+nb-layout-column {
+    background: #fff!important;
+}
+
+mat-card {
+    margin-top: 2rem;
+    overflow: scroll;
+}
+
+mat-card h4 {
+    font-size: 1rem;
+    color: black;
+}
+
+mat-card nav ol li a {
+    text-decoration: none;
+}
+
+::ng-deep {
+    mat-card {
+        box-shadow: 0 0 30px 0 rgb(131 157 188 / 20%)!important;
+    }
+}
+
+.title {
+    max-width: 8rem;
+    overflow: hidden;
+}
+
+.table {
+    width: 100%;
+    overflow: scroll;
+}
+
+thead th {
+    color: rgb(114, 111, 111);
+}
+
+tbody th,
+td {
+    color: rgb(150, 146, 146);
+    font-weight: 400;
+}
+
+.actions a:hover {
+    cursor: pointer;
+}
+
+.videoHover:hover {
+    cursor: pointer;
+}
+
+.my-videos {
+    background: #fff;
+}
+
+.theme-default {
+    background-color: #edf0f4;
+}
+
+.example-items-rows {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    margin: -0.5rem;
+}
+
+.example-items-rows button {
+    margin-right: 10px;
+}
+
+nb-card {
+    height: auto;
+    padding: 0;
+    margin-bottom: 5px!important;
+    border-radius: 20px!important;
+    -webkit-border-radius: 20px!important;
+    -moz-border-radius: 20px!important;
+    -ms-border-radius: 20px!important;
+    -o-border-radius: 20px!important;
+    background-color: #ffffff;
+}
+
+nb-card-body {
+    height: auto;
+    border-radius: 0;
+    margin-bottom: 5px!important;
+    -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    -ms-border-radius: 0;
+    -o-border-radius: 0;
+    background-color: #edf0f4!important;
+}

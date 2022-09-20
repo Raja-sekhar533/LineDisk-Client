@@ -1,0 +1,37 @@
+.container-fluid {
+    width: 100%;
+}
+
+.row {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+video {
+    width: 100%;
+    max-height: 80vh;
+}
+
+.Info {
+    width: 100%;
+}
+
+.Infotitle {
+    font-weight: bold;
+}
+
+.info-data {
+    color: lightslategrey;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 4px;
+}
+
+.report {
+    margin-top: 0.5rem;
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+
+.report span {}

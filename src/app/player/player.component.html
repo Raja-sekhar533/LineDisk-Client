@@ -1,0 +1,46 @@
+<div class="container-fluid">
+    <div class="row">
+        <div>
+            <h3>{{videoDetails.filetitle.substring(0,60)}}...</h3>
+            <video controls controlsList="nodownload">
+                <source src="{{videoDetails.videourl}}" type="video/mp4"> 
+              </video>
+        </div>
+        <div> <br/>
+        </div>
+        <div>
+            <button nbButton fullWidth status="success" (click)="savetoMydisk()" [disabled]="isSaved">Save to my Disk</button>
+        </div>
+        <div class="report">
+
+            <ng-template #dialog let-data let-ref="dialogRef ">
+
+                <nb-card>
+                    <nb-card-header>Template Dialog</nb-card-header>
+                    <nb-card-body>
+                        <nb-radio-group status="success ">
+                            <nb-radio>
+                            </nb-radio>
+                        </nb-radio-group>
+                    </nb-card-body>
+                    <nb-card-footer>
+                        <button nbButton (click)="ref.close() ">Close Dialog</button>
+                    </nb-card-footer>
+                </nb-card>
+            </ng-template>
+            <span (click)="open()">    <nb-icon icon="alert-triangle-outline "></nb-icon>
+                Report</span>
+        </div>
+        <div> <br/>
+        </div>
+        <div class="Info ">
+            <h3 class="Infotitle ">Information:</h3>
+            <div class="info-data ">
+                <span> User: ****{{videoDetails.userId.substring(16)}}</span>
+                <span> Time: {{videoDetails.date | date}}</span>
+            </div>
+            <span style="color: lightslategrey; ">Resolution: Original({{videoDetails.fileSize}})</span>
+        </div>
+
+    </div>
+</div>

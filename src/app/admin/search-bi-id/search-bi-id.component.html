@@ -1,0 +1,42 @@
+<div class="container-fluid mb-2">
+    <div class="row">
+        <mat-card>
+            <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="/Admin">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Search</li>
+                </ol>
+            </nav>
+            <div>
+                <h4>Search Videos</h4>
+            </div>
+        </mat-card>
+    </div>
+</div>
+
+<div class="search">
+    <nb-card size="small">
+        <nb-card-body>
+            <nb-form-field>
+                <nb-icon nbPrefix icon="search-outline" pack="eva"></nb-icon>
+                <input type="text" nbInput (keyup.enter)="search($event)">
+            </nb-form-field>
+        </nb-card-body>
+    </nb-card>
+</div>
+<div *ngIf="isResponse">
+    <nb-card class="theme-default">
+        <nb-card-header style="display: flex; justify-content:space-between"> <span>{{searchedVideo.filetitle}}</span> <span> <button nbButton [nbContextMenu]="itemss" nbContextMenuTag="my-context-menu" (click)="saveId(searchedVideo._id)" style="right:0" ><nb-icon icon="more-vertical-outline"></nb-icon>
+        </button></span>
+        </nb-card-header>
+        <nb-card-body style="display: grid;">
+            <span>Uploaded: {{searchedVideo.date | date}}</span>
+            <span> $ {{searchedVideo.revenue}} | <nb-icon icon="eye-outline"></nb-icon>  {{searchedVideo.views}} 
+                    </span>
+            <span>Status: <span style="color: green;">Uploaded</span></span>
+        </nb-card-body>
+    </nb-card>
+</div>
+<div *ngIf="noDataFound" class="noDataFound">
+    <img src="../../../assets/images/3024051.jpg" alt="">
+</div>

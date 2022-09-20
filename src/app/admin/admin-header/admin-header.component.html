@@ -1,0 +1,114 @@
+<div class="container-fluid">
+    <div class="row">
+
+
+        <nav class="navbar navbar-expand-lg  ">
+            <div class="container-fluid">
+                <a class="navbar-brand" aria-label="Example icon-button with menu icon">
+                    <img src="./assets/images/logo2.png" class="img-fluid" alt="...">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page">
+                                <span class="home example-icon" routerLink="/myvideos">                <i class="fas fa-video"></i>
+                                    My Video</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link">
+                                <span class="home example-icon" routerLink="/upload"><i class="fas fa-upload"></i> Upload Files</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" routerLink="/income">
+                                <span class="home example-icon"><i class="fas fa-rupee-sign"></i> Income</span>
+                            </a>
+                        </li>
+                    </ul>
+
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">
+                            <i class="fas fa-bell example-icon"></i>
+
+                        </a>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <span class="home example-icon" *ngIf="isLogin">                <i class="fas fa-user" ></i>
+                                {{username}}</span>
+                            <span class="home example-icon" *ngIf="!isLogin">                <i class="fas fa-user" ></i>
+                                Account</span>
+                        </a>
+                        <ul class="dropdown-menu drpmenu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="#" *ngIf="!isLogin" routerLink="/signup">Signup</a></li>
+                            <li><a class="dropdown-item" href="#" *ngIf="!isLogin" routerLink="/login">Login</a></li>
+                            <li>
+                                <li><a class="dropdown-item" href="#" *ngIf="isLogin" (click)="loggedOut()">Logout</a></li>
+                                <li>
+                                    <!-- <hr class="dropdown-divider"> -->
+                                </li>
+                                <!-- <li><a class="dropdown-item" href="#">Something else here</a></li> -->
+                        </ul>
+                        </li>
+                </div>
+            </div>
+        </nav>
+
+        <!-- 
+        <mat-toolbar class="toolbar">
+
+            <a class="example-icon favorite-icon">
+
+            </a>
+            <a class="example-icon favorite-icon">
+
+            </a>
+            <a class="example-icon favorite-icon">
+
+            </a>
+
+            <span class="example-spacer"></span>
+
+            <a class="example-icon favorite-icon">
+                <i class="fas fa-bell example-icon"></i>
+            </a>
+             <a class="example-icon favorite-icon ">
+                <i class="fas fa-user example-icon"></i> 
+            </a> 
+            <a class="example-icon favorite-icon">
+                <span class="home example-icon">                <i class="fas fa-user"></i>
+                    {{username}}</span>
+            </a>
+            <div class="collapse navbar-collapse" id="navbarNavDarkDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDarkDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                      Dropdown
+                    </a>
+                        <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="navbarDarkDropdownMenuLink">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <!-- <a class="example-icon favorite-icon">
+                <span class="home example-icon">Contact Us</span>
+            </a> -->
+        <!-- <button mat-button class="example-icon favorite-icon">
+            <span class="home example-icon">Home</span>
+        </button> -->
+        <!-- <a style="margin-right: 100px;" class=" btn-userpanel">User Panel</a> -->
+        <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+                <mat-icon>menu</mat-icon>
+            </button> 
+        </mat-toolbar> -->
+    </div>
+</div>

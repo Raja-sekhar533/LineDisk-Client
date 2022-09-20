@@ -1,0 +1,39 @@
+nb-card {
+    background-color: #edf0f4;
+    height: auto;
+    width: auto;
+}
+
+nb-card-body {
+    padding: 5px;
+    margin: 3px!important;
+}
+
+nb-card-body span {
+    color: #626464;
+}
+
+nb-card-body .trans-amount {
+    font-size: 2rem;
+    color: red;
+}
+
+.PaymentStatus {
+    display: flex;
+    justify-content: space-between;
+}
+
+.PaymentStatus img {
+    width: 3rem;
+    height: auto;
+}
+
+.transaction-ids {
+    font-size: 13px;
+    color: #626464;
+}
+
+nb-card-body .transaction-date span {
+    font-size: 13px!important;
+    color: #626464;
+}

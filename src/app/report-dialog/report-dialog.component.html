@@ -1,0 +1,15 @@
+<h1 mat-dialog-title>
+    Report</h1>
+<div mat-dialog-content>
+    <nb-select placeholder="--Select Report Type--" [formControl]="selectedItemFormControl">
+        <nb-option value="">-- Select Report Type --</nb-option>
+        <nb-option value="Child pornography/ Abuse">Child pornography/ Abuse </nb-option>
+        <nb-option value="Promote terrorism">Promote terrorism</nb-option>
+        <nb-option value="Hateful and absusive content">Hateful and absusive content</nb-option>
+        <nb-option value="Violent or repulsive content">Violent or repulsive content </nb-option>
+    </nb-select>
+    <div><br></div> If you want to report other kinds of in-appropriate content, please send the reason and videolink to report@ldisk.com. our staff will complete the processing within 7 working days and inform after processing your request.</div>
+<div mat-dialog-actions>
+    <button mat-button mat-dialog-close>Close</button>
+    <button nbButton status="success" (click)="sendReport()" [disabled]="!selectedItemFormControl.valid">Send Report</button>
+</div>

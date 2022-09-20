@@ -1,0 +1,107 @@
+<div style="display: flex;">
+    <nb-icon nbPrefix icon="arrow-back-outline" pack="eva" style="margin:3px;" routerLink="/Admin"></nb-icon>
+    <h3>Manage Payments</h3>
+</div>
+<mat-tab-group>
+    <mat-tab label="Auditing">
+        <div *ngFor="let payment of paymentDetails" style="margin-bottom: 1rem;">
+            <nb-card *ngIf="payment.status == 'Auditing'">
+                <nb-card-body>
+                    <div style="display: flex;justify-content:space-between;">
+                        <h3> Withdraw</h3>
+                        <span> <button nbButton [nbContextMenu]="itemss" nbContextMenuTag="my-context-menu3" (click)="saveId(payment._id,payment.userId)" style="right:0" ><nb-icon icon="more-vertical-outline"></nb-icon>
+                    </button></span>
+                    </div>
+                    <div class="PaymentStatus">
+                        <img *ngIf="payment.paymentType == 'GPAY'" src="../../../assets/images/google-pay-icon.webp" class="InProgress" />
+                        <img *ngIf="payment.paymentType == 'PTMPAY'" src="../../../assets/images/Paytm-Logo.wine.png" class=" Approved " />
+                        <img *ngIf="payment.paymentType == 'PHPAY'" src="../../../assets/images/phonepe-logo-icon.webp" class=" Rejected " />
+                        <span class="trans-amount">${{payment.amount}}</span>
+                    </div>
+                    <div class="transaction-ids">
+                        <span>trans_Id: {{payment._id}}</span>
+                    </div>
+                    <div class="transaction-date">
+                        <span>{{payment.date | date}}</span>
+                    </div>
+                </nb-card-body>
+            </nb-card>
+        </div>
+    </mat-tab>
+    <mat-tab label="In Progress">
+        <div *ngFor="let payment of paymentDetails">
+
+            <nb-card *ngIf="payment.status == 'InProgress'">
+                <nb-card-body>
+                    <div style="display: flex;justify-content:space-between;">
+                        <h3> Withdraw</h3>
+                        <span> <button nbButton [nbContextMenu]="itemss" nbContextMenuTag="my-context-menu3" (click)="saveId(payment._id,payment.userId)" style="right:0" ><nb-icon icon="more-vertical-outline"></nb-icon>
+                    </button></span>
+                    </div>
+                    <div class="PaymentStatus">
+                        <img *ngIf="payment.paymentType == 'GPAY'" src="../../../assets/images/google-pay-icon.webp" class="InProgress" />
+                        <img *ngIf="payment.paymentType == 'PTMPAY'" src="../../../assets/images/Paytm-Logo.wine.png" class=" Approved " />
+                        <img *ngIf="payment.paymentType == 'PHPAY'" src="../../../assets/images/phonepe-logo-icon.webp" class=" Rejected " />
+                        <span class="trans-amount">${{payment.amount}}</span>
+                    </div>
+                    <div class="transaction-ids">
+                        <span>trans_Id: {{payment._id}}</span>
+                    </div>
+                    <div class="transaction-date">
+                        <span>{{payment.date | date}}</span>
+                    </div>
+                </nb-card-body>
+            </nb-card>
+        </div>
+    </mat-tab>
+    <mat-tab label="Approved">
+        <div *ngFor="let payment of paymentDetails">
+            <nb-card *ngIf="payment.status == 'Approved' ">
+                <nb-card-body>
+                    <div style="display: flex;justify-content:space-between;">
+                        <h3> Withdraw</h3>
+                        <span> <button nbButton [nbContextMenu]="itemss" nbContextMenuTag="my-context-menu3" (click)="saveId(payment._id,payment.userId)" style="right:0" ><nb-icon icon="more-vertical-outline"></nb-icon>
+                    </button></span>
+                    </div>
+                    <div class="PaymentStatus">
+                        <img *ngIf="payment.paymentType == 'GPAY'" src="../../../assets/images/google-pay-icon.webp" class="InProgress" />
+                        <img *ngIf="payment.paymentType == 'PTMPAY'" src="../../../assets/images/Paytm-Logo.wine.png" class=" Approved " />
+                        <img *ngIf="payment.paymentType == 'PHPAY'" src="../../../assets/images/phonepe-logo-icon.webp" class=" Rejected " />
+                        <span class="trans-amount">${{payment.amount}}</span>
+                    </div>
+                    <div class="transaction-ids">
+                        <span>trans_Id: {{payment._id}}</span>
+                    </div>
+                    <div class="transaction-date">
+                        <span>{{payment.date | date}}</span>
+                    </div>
+                </nb-card-body>
+            </nb-card>
+        </div>
+    </mat-tab>
+    <mat-tab label="Rejected">
+        <div *ngFor="let payment of paymentDetails ">
+            <nb-card *ngIf="payment.status == 'Rejected'">
+                <nb-card-body>
+                    <div style="display: flex;justify-content:space-between;">
+                        <h3> Withdraw</h3>
+                        <span> <button nbButton [nbContextMenu]="itemss" nbContextMenuTag="my-context-menu3" (click)="saveId(payment._id,payment.userId)" style="right:0" ><nb-icon icon="more-vertical-outline"></nb-icon>
+                    </button></span>
+                    </div>
+                    <div class="PaymentStatus">
+                        <img *ngIf="payment.paymentType == 'GPAY'" src="../../../assets/images/google-pay-icon.webp" class="InProgress" />
+                        <img *ngIf="payment.paymentType == 'PTMPAY'" src="../../../assets/images/Paytm-Logo.wine.png" class=" Approved " />
+                        <img *ngIf="payment.paymentType == 'PHPAY'" src="../../../assets/images/phonepe-logo-icon.webp" class=" Rejected " />
+                        <span class="trans-amount">${{payment.amount}}</span>
+                    </div>
+                    <div class="transaction-ids">
+                        <span>trans_Id: {{payment._id}}</span>
+                    </div>
+                    <div class="transaction-date">
+                        <span>{{payment.date | date}}</span>
+                    </div>
+                </nb-card-body>
+            </nb-card>
+        </div>
+    </mat-tab>
+</mat-tab-group>

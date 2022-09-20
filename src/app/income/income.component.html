@@ -1,0 +1,54 @@
+<div class="container-fluid">
+    <div class="row">
+        <mat-card>
+            <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='currentColor'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Income</li>
+                </ol>
+            </nav>
+            <div class="my-income">
+                <h4>My Income</h4>
+                <button nbButton status="success" (click)="withdraw()">Withdraw</button>
+
+            </div>
+        </mat-card>
+
+        <div class="my-income-profile">
+            <nb-card status="danger">
+                <nb-card-header>
+                    <div class="profile">
+                        <div class="profile-img"><img src="../../assets//images/profile-img.png" alt=""></div>
+                        <div>
+                            <span class="title">{{username}}</span>
+                            <span>ID: {{id}}</span>
+                        </div>
+                    </div>
+                </nb-card-header>
+                <nb-card-body>
+                    <div class="today-estimated">
+                        <span class="today-est-title">Today Estimated</span>
+                        <span class="today-est-amt">$0.00</span>
+                    </div>
+                </nb-card-body>
+            </nb-card>
+
+            <nb-card>
+                <nb-card-body>
+                    <div class="total-revenue">
+                        <div class="today-rev-title">
+                            <p class="title">Total Revenue</p>
+                            <p class="amt">${{totalrevenue | number: '2.4-4' }}</p>
+                        </div>
+                        <div class="today-rev-amt">
+                            <p class="title">Withdrawable</p>
+                            <p class="amt">${{totalrevenue | number:'2.4-4' }}</p>
+                        </div>
+                    </div>
+                </nb-card-body>
+            </nb-card>
+
+
+        </div>
+    </div>
+</div>
