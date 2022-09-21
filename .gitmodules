@@ -1,0 +1,3 @@
+[submodule "LindDiskServer"]
+	path = LindDiskServer
+	url = https://github.com/Raja-sekhar533/LindDisk-server.git
