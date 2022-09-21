@@ -72,18 +72,18 @@
         <div class="container-fluid footer" *ngIf='isAdmin'>
             <div class="row">
                 <div class="logo-footer">
-                    <a class="logo-footer" routerLink='/'><img src="./../assets/images/logo2.png" class="img-fluid" alt="LineDisk"></a>
+                    <a class="logo-footer" routerLink='/Admin'><img src="./../assets/images/logo2.png" class="img-fluid" alt="LineDisk"></a>
                 </div>
                 <div class="list">
                     <ol>
                         <li><a href="/">Home</a> </li>
-                        <li *ngIf="isLogin"><a routerLink="/upload">Uploads</a> </li>
+                        <li *ngIf="isLogin"><a routerLink="/manage-videos">Manage Videos</a> </li>
                     </ol>
                 </div>
                 <div class="list" *ngIf="isLogin">
                     <ol>
-                        <li *ngIf="isLogin"><a routerLink="/myvideos">My Videos</a></li>
-                        <li *ngIf="isLogin"><a routerLink="/income">Income</a></li>
+                        <li *ngIf="isLogin"><a routerLink="/search-by-id">Search Videos</a></li>
+                        <li *ngIf="isLogin"><a routerLink="/manage-payments">Manage Payments</a></li>
                     </ol>
                 </div>
                 <div class="list">
