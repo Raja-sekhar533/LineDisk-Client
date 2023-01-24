@@ -6,15 +6,16 @@ import * as Rx from 'rxjs';
 import { io } from 'socket.io-client';
 import { Observable } from 'rxjs';
 import { NbComponentStatus, NbToastrService } from '@nebular/theme';
-const  environment = "http://localhost:4567";
+import {environment} from '../../environments/environment.prod';
 @Injectable({
   providedIn: 'root'
 })
 export class NotificationServiceService {
   socket: any;
+  private env = environment.NOTIFICATION_URL;
 
   constructor(private toastrService: NbToastrService) {    
-    this.socket = io(environment);
+    this.socket = io(this.env);
   }
 
   connect(): Rx.Subject<MessageEvent> {

@@ -4,7 +4,8 @@
 
 export const environment = {
   production: true,
-    BACKENDURL: '/api/'
+    BACKENDURL: 'http://localhost:4000/api/',
+    NOTIFICATION_URL: "http://localhost:4567/"
 };
 
 /*
